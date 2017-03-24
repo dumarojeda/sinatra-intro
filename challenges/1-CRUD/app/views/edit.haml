@@ -1,0 +1,16 @@
+%h1 Edit Note
+
+- if @errors
+  %ul
+    - @errors.each do |error|
+      %li
+        = error
+
+%form{:action => "/notes/#{@note.id}", :method => "post"}
+  %input{:name => "_method", :type => "hidden", :value => "PATCH"}/
+  %label{:for => "title"}
+  %input{:type => "text", :name => "title", :placeholder => "Write here your title...", :value => @note.title}/
+  %label{:for => "content"}
+  %textarea{:name => "content", :cols => "30", :rows => "10", :placeholder => "Write here your content..."} 
+    = @note.content
+  %input{:type => "submit", :value => "Update Note"}/
