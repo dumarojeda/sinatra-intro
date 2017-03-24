@@ -1,1 +1,6 @@
 /* Aca va tu CSS */
+
+/* Forms */
+label, input, textarea {
+  display: block;
+}
