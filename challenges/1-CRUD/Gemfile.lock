@@ -31,6 +31,8 @@ GEM
       activesupport (>= 3.0.0)
     faker (1.7.3)
       i18n (~> 0.5)
+    haml (4.0.7)
+      tilt
     i18n (0.8.1)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -94,6 +96,7 @@ DEPENDENCIES
   database_cleaner (~> 1.4.1)
   factory_girl
   faker
+  haml
   pg
   rack-test
   rake
