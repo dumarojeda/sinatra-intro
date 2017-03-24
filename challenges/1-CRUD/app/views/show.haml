@@ -1,6 +1,9 @@
-%h1 
-  = @note.title
-%p
-  = @note.content
+.card
+  .header
+    %h4.title
+      = @note.title
+  .content
+    %p
+      = @note.content
 
-%a{:href => "/"} Back to Notes
+    %a.btn.btn-small.btn-primary{:href => "/"} Back to Notes

@@ -1,16 +1,28 @@
-%h1 Edit Note
+.card
+  .header
+    %h4.title Edit Note
+  .content
 
-- if @errors
-  %ul
-    - @errors.each do |error|
-      %li
-        = error
+    - if @errors
+      .alert.alert-danger
+        %ul
+        - @errors.each do |error|
+          %li
+            %b Danger -
+            = error
 
-%form{:action => "/notes/#{@note.id}", :method => "post"}
-  %input{:name => "_method", :type => "hidden", :value => "PATCH"}/
-  %label{:for => "title"}
-  %input{:type => "text", :name => "title", :placeholder => "Write here your title...", :value => @note.title}/
-  %label{:for => "content"}
-  %textarea{:name => "content", :cols => "30", :rows => "10", :placeholder => "Write here your content..."} 
-    = @note.content
-  %input{:type => "submit", :value => "Update Note"}/
+    %form{:action => "/notes/#{@note.id}", :method => "post"}
+      %input{:name => "_method", :type => "hidden", :value => "PATCH"}/
+      .row
+        .col-md-12
+          .form-group
+            %label{:for => "title"} Title
+            %input.form-control{:type => "text", :name => "title", :placeholder => "Write here your title...", :value => @note.title}/
+      .row
+        .col-md-12
+          .form-group
+            %label{:for => "content"} Content
+            %textarea.form-control{:name => "content", :cols => "30", :rows => "10", :placeholder => "Write here your content..."} 
+              = @note.content
+      %input.btn.btn-info.btn-fill.pull-right{:type => "submit", :value => "Update Note"}/
+      .clearfix

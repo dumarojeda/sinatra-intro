@@ -1,12 +1,60 @@
 !!!
 %html{:lang => "en"}
   %head
-    %link{:href => "/css/normalize.css", :rel => "stylesheet"}/
+    / Bootstrap core CSS
+    %link{:href => "/css/libs/bootstrap.min.css", :rel => "stylesheet"}/
+    / Animation library for notifications
+    %link{:href => "/css/libs/animate.min.css", :rel => "stylesheet"}/
+    / Light Bootstrap Table core CSS
+    %link{:href => "/css/libs/light-bootstrap-dashboard.css", :rel => "stylesheet"}/
+    / CSS for Demo Purpose, don't include it in your project
+    %link{:href => "/css/libs/demo.css", :rel => "stylesheet"}/
+    / Fonts and icons
+    %link{:href => "http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+    %link{:href => "http://fonts.googleapis.com/css?family=Roboto:400,700,300", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "/css/libs/pe-icon-7-stroke.css", :rel => "stylesheet"}/
+    / Custom css
     %link{:href => "/css/application.css", :rel => "stylesheet"}/
   %title Notas
 %body
-  #content
-    = yield
-  %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
+  .wrapper
+    .sidebar{"data-color" => "purple"}
+      .sidebar-wrapper
+        .logo
+          %a.simple-text{:href => "/"}
+            NotesApp
+        %ul.nav
+          %li
+            %a{:href => "/"}
+              %i.pe-7s-file
+              %p Notes
+          %li
+            %a{:href => "/notes/new"}
+              %i.pe-7s-plus
+              %p Add Note
+    .main-panel
+      %nav.navbar.navbar-default.navbar-fixed
+        .container-fluid
+          .navbar-header
+            %a.navbar-brand{:href => "/"} NotesApp
+      .content
+        .container-fluid
+          .row
+            = yield
+      %footer.footer
+        .container-fluid
+          %nav.pull-left
+            %ul
+              %li
+                %a{:href => "/"}
+                  Home
+              %li
+                %a{:href => "/notes/new"}
+                  Add note
+          %p.copyright.pull-right
+            © 2017 made with love for a better web
+
+
+  %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
   %script{:src => "/js/application.js"}
 

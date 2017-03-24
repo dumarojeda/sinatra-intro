@@ -1,14 +1,26 @@
-%h1 New Note
+.card
+  .header
+    %h4.title New note
+  .content
 
-- if @errors
-  %ul
-    - @errors.each do |error|
-      %li
-        = error
+    - if @errors
+      .alert.alert-danger
+        %ul
+        - @errors.each do |error|
+          %li
+            %b Danger -
+            = error
 
-%form{:action => "/notes", :method => "post"}
-  %label{:for => "title"}
-  %input{:type => "text", :name => "title", :placeholder => "Write here your title..."}/
-  %label{:for => "content"}
-  %textarea{:name => "content", :cols => "30", :rows => "10", :placeholder => "Write here your content..."}
-  %input{:type => "submit", :value => "Add Note"}/
+    %form{:action => "/notes", :method => "post"}
+      .row
+        .col-md-12
+          .form-group
+            %label{:for => "title"} Title
+            %input.form-control{:type => "text", :name => "title", :placeholder => "Write here your title..."}/
+      .row
+        .col-md-12
+          .form-group
+            %label{:for => "content"} Content
+            %textarea.form-control{:name => "content", :cols => "30", :rows => "10", :placeholder => "Write here your content..."}
+      %input.btn.btn-info.btn-fill.pull-right{:type => "submit", :value => "Add Note"}/
+      .clearfix
